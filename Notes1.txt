@@ -129,16 +129,59 @@ isme sari files hongi css ki
             -> Jidr a Tag hai udr hum Link Tag use krege 
             -> href ki jgh 'to' use krege 
 
-            function App() {
-                return (
-                    <Router>
-                    {/* ROUTES ISKE BAHAR VO CHEEZE RAKHEGE JO HAR PAGE PR SHOW  
-                    KRWANI H */}
-                    <Routes>
-                        {/* <Route path="/" element={<Heading />} /> */}
-                        {/* so jb jb heading pr click hoga toh yeh open hojega 
-                        path */}
-                    </Routes>
-                    </Router>
-                );
-                }
+function App() {
+  return (
+    <Router>
+      {/* ROUTES ISKE BAHAR VO CHEEZE RAKHEGE JO HAR PAGE PR SHOW  
+       KRWANI H */}
+      <Header />
+      <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/about" element={<Home />} />
+        <Route path="/about" element={<Contact />} />
+        <Route path="/product:id" element={<Contact />} />
+        {/* Dynamci routing ->  */}
+        <Route path="*" element={<PageNotFound />} />
+        {/* * -> used to make 404 page */}
+      </Routes>
+    </Router>
+  );
+}
+
+PRODUCTS.JS ---> 
+
+import React from "react";
+import { useParams } from "react-router-dom";
+
+const Product = () => {
+  const params = useParams();
+  return (
+    <div>
+      <h1>product Id</h1>
+      <h2>{params.id}</h2>
+    </div>
+  );
+};
+
+export default Product;
+
+
+Header.js --->
+import React from "react";
+import { Link } from "react-router-dom";
+
+const Header = () => {
+  return (
+    <nav>
+      <Link to="/">home</Link>
+      <Link to="/about">about</Link>
+      <Link to="/contact">contact</Link>
+    </nav>
+  );
+};
+
+export default Header;
+
+
+
+      
