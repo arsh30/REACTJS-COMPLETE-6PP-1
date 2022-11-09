@@ -1,0 +1,144 @@
+1) REACT INSTALLATION AND FOLDER STRUCTURE 
+
+-> Install NodeJs
+-> to install app -> npx i create-react-app appname
+-> cd appname and npm start 
+
+<-------------------->
+
+2) FOLDER STRUCTURE 
+
+-> Public folder -> isme main html file h jo server hori h, 
+    isme sirf 1 root h div jisme puri html load hoti h 
+
+-> package.josn -> dependency -> vo sab packages honge , jo humne  
+   install kre h
+
+-> src folder -> App.js and index.js inko rkhege bss baki sabko delete krdege , and index.js isme se jo jo file exit nhi krti unko remove krdo
+
+<------------------->
+
+3) React Basic syntax 
+
+-> const root = ReactDom.createRoot(gebi(passId_Of_Root_Element));
+root.render(pass the component);
+
+-> sari website ka file App.js me likhege 
+
+-> Function component - iska first letter capital hoga
+    function Heading(){
+        return <h1> HEADING </h1>
+    }
+    function App(){
+        return (
+            <div>
+            <h1> welcome Page 1 {a}</h1> -> {} JSX bracket to access the element 
+            <Heading /> -> COMPONENT KO AS A TAG USE KREGE 
+            </div>
+        )
+    }
+
+    [NOTE - JS me 'RETURN 'ME KOI BHI VARIABLE ACCESS KRNA HAI TOH {} JSX in bracket me krege]
+
+-> Javasscript file -> .jsx and js both are same for react 
+
+-> React sirf 1 component hi return kr skta hai 
+so -> ya toh <> </> isme wrap krlo  best
+ya -> <React.Fragment> </React.Fragment>
+ya -> <div> </div>
+
+<---------------------------->
+
+4) IMPORT AND EXPORT,  PROPS
+
+-> export default -> ye sirf puri file me sirf kisi 1 ko kar skte hai,
+but isko jb import krege, import AnyName from "./Path of file";
+
+-> export {compA,compB}; // jitne bhi bche hai vo sare component ke name likhege, 
+but jo -> import krege jis file me, udr bhi {} in brackets me hi krege 
+
+Props ----->
+
+-> PROPS ARE OBJECTS
+
+function App() {
+  return (
+    <div>
+      <Heading name={"Aarshdeep"} />
+      {/* WE CAN SEND PROPS TO HEADING COMPONENT */}
+    </div>
+  );
+}
+
+const Heading = (props) => {
+  // RECIEVING THE PROPS
+  return (
+    <div>
+      Heading
+      {props.name}
+    </div>
+  );
+};
+
+export default Heading;
+
+Destructure Way to recieve Props  -> 
+
+const Heading = ({ name , price = 200}) => { 
+    -> Default Parameter to giving values
+  // RECIEVING THE PROPS USSI NAME SE IMPORT KREGE JIS NAME SE BHJA H
+  return (
+    <div>
+    {price} // op 200 
+      Heading
+      {name}
+    </div>
+  );
+};
+
+
+<--------------------------------->
+
+5) STYLING ----->
+
+-> Iske liye 1 new Folder bnaege - styles -> 
+isme sari files hongi css ki
+
+-> Har component ki css alag likhege 
+
+-> App.css -> Isme vo sab hoga jo universally rakhna hai 
+
+-> Sari CSS files 1 dusre se link hai 
+
+
+<----------------------------------->
+
+6) ROUTING
+
+-> npm i react-router-dom 
+->  In App.js -> 
+              -> import {BrowserRouter as Router,Routes,Route}  
+               from 'react-router-dom';
+              -> return me sabse upr likhege -> <Router> 
+                 </<Router>
+              -> <Routes> <Routes>
+              -> <Routes> iske andr <Route> aayega jisme sare path 
+                  honge 
+
+
+            -> Jidr a Tag hai udr hum Link Tag use krege 
+            -> href ki jgh 'to' use krege 
+
+            function App() {
+                return (
+                    <Router>
+                    {/* ROUTES ISKE BAHAR VO CHEEZE RAKHEGE JO HAR PAGE PR SHOW  
+                    KRWANI H */}
+                    <Routes>
+                        {/* <Route path="/" element={<Heading />} /> */}
+                        {/* so jb jb heading pr click hoga toh yeh open hojega 
+                        path */}
+                    </Routes>
+                    </Router>
+                );
+                }
